@@ -22,5 +22,11 @@ export const entries =[
         title: 'pinal',
         date: '25/06/2026',
         img: './src/assets/pinal.jpeg'
+    },
+        {
+        id: 5,
+        title: 'r1',
+        date: '25/06/2026',
+        img: './src/assets/pinal.jpeg'
     }
 ]
