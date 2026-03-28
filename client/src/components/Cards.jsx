@@ -1,5 +1,14 @@
 function CardList({ entries, filteredText }){
-  const cards = entries.map(entry => entry.title.includes(filteredText) && <Card key={entry.id} img={entry.img} title={entry.title} date={entry.date}></Card>)
+  const cards = entries
+    .filter(entry => entry.title.toLowerCase().includes(filteredText.toLowerCase()))
+    .map(entry => (
+      <Card
+        key={entry.id_post || entry.id}
+        img={entry.image || entry.img}
+        title={entry.title}
+        date={entry.date}
+      />
+    ));
   return (
     <div className='card-list'>
       {cards}
@@ -7,10 +16,10 @@ function CardList({ entries, filteredText }){
   )
 }
 
-function Card({id, img, title, date}){
+function Card({img, title, date}){
   return(
-    <div className = 'card' key={id}>
-      <img src={img}></img>
+    <div className='card'>
+      <img src={img} alt={title} />
       <h1>{title}</h1>
       <p>{date}</p>
     </div>
