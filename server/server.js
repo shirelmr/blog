@@ -23,14 +23,25 @@ app.get('/hello', (req, res) => {
 
 /* GET all the posts */
 app.get('/posts', (req, res) => {
-  db.any('SELECT * FROM post')
+  db.any(`
+    SELECT post.*, author.name AS author_name, author.lastname AS author_lastname,
+           CONCAT(author.name, ' ', author.lastname) AS author_full_name
+    FROM post
+    LEFT JOIN author ON post.id_author = author.id_author
+  `)
     .then((data) => res.json(data))
     .catch((error) => console.log('ERROR:', error));
 });
 
 /* GET a specific post */
 app.get('/posts/:id_post', (req, res) => {
-  db.one('SELECT * FROM post WHERE id_post=$1', [req.params.id_post])
+  db.one(`
+    SELECT post.*, author.name AS author_name, author.lastname AS author_lastname,
+           CONCAT(author.name, ' ', author.lastname) AS author_full_name
+    FROM post
+    LEFT JOIN author ON post.id_author = author.id_author
+    WHERE post.id_post=$1
+  `, [req.params.id_post])
     .then((data) => res.json(data))
     .catch((error) => console.log('ERROR:', error));
 });
