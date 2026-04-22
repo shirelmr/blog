@@ -4,6 +4,7 @@ import Home from './Home'
 import Blog from './Blog'
 import Contact from './Contact'
 import Post from './components/Post';
+import NewPost from './components/NewPost';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/new' element={<NewPost />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/blog/:id_post' element={<Post />} />
       </Routes>

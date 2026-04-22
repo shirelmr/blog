@@ -1,5 +1,6 @@
 import { CardList } from './components/Cards'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router'
 
 function Blog() {
   const [entries, setEntries] = useState([]);
@@ -23,6 +24,7 @@ function Blog() {
         <div className='filter'>
           <input type='text' placeholder='Buscar hike...' value={filteredText} onChange={handleChange} />
           <button>Search</button>
+          <Link to='/blog/new' className='add-post-link'>Agregar post</Link>
         </div>
         <CardList entries={entries} filteredText={filteredText} />
       </div>
