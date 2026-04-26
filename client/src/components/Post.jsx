@@ -12,7 +12,7 @@ export default function Post(){
 		setIsLoading(true);
 		setError('');
 
-		fetch('http://localhost:8000/posts/' + id_post)
+		fetch(`${import.meta.env.VITE_API_URL}/posts/${id_post}`)
 			.then((res) => {
 				if (!res.ok) {
 					throw new Error('No se pudo cargar el post');

@@ -42,7 +42,7 @@ formInfo.append('title', title);
 formInfo.append('author', author);
 formInfo.append('text', text);
 formInfo.append('img', img.file, img.filename);
-fetch("http://localhost:8000/posts/new",{
+fetch(`${import.meta.env.VITE_API_URL}/posts/new`,{
 method: "POST",
 body: formInfo,
 })

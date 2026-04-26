@@ -7,7 +7,7 @@ function Blog() {
   const [filteredText, setFilteredText] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8000/posts')
+    fetch(`${import.meta.env.VITE_API_URL}/posts`)
       .then((res) => res.json())
       .then((posts) => setEntries(posts))
       .catch((err) => console.log('Error fetching posts:', err));
