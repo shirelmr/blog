@@ -2,8 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict dJq3KFAXJF6rgQ27g2gkbrHQ3GFTpVNKJxE0QZv5tECH9T4DidUKvXLc3K0IDiN
-
 -- Dumped from database version 16.13 (Homebrew)
 -- Dumped by pg_dump version 16.13 (Homebrew)
 
@@ -215,6 +213,4 @@ ALTER TABLE ONLY public.post
 --
 -- PostgreSQL database dump complete
 --
-
-\unrestrict dJq3KFAXJF6rgQ27g2gkbrHQ3GFTpVNKJxE0QZv5tECH9T4DidUKvXLc3K0IDiN
 
