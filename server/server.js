@@ -191,3 +191,17 @@ syncSequences()
   .catch((error) => {
     console.log('ERROR iniciando servidor:', error);
   });
+
+import fs from 'fs';
+import path from 'path';
+
+app.get('/seed', async (req, res) => {
+  try {
+    const sql = fs.readFileSync(path.join('db', 'init.sql'), 'utf8');
+    await pool.query(sql);
+    res.send('✅ Base de datos inicializada correctamente');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('❌ Error: ' + err.message);
+  }
+});
