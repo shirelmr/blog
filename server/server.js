@@ -184,15 +184,12 @@ app.get('/authors/:id_author', authenticateSession, (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-syncSequences()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Servidor corriendo en puerto ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log('ERROR iniciando servidor:', error);
-  });
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
+  syncSequences()
+    .then(() => console.log('Secuencias sincronizadas'))
+    .catch((err) => console.log('syncSequences falló (normal si DB vacía):', err.message));
+});
 
 app.get('/seed', async (req, res) => {
   try {
