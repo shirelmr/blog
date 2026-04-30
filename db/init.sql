@@ -1,5 +1,12 @@
 -- PostgreSQL database dump (compatible con Node.js)
 
+-- Limpiar tablas existentes
+DROP TABLE IF EXISTS public.post CASCADE;
+DROP TABLE IF EXISTS public.session CASCADE;
+DROP TABLE IF EXISTS public.author CASCADE;
+DROP SEQUENCE IF EXISTS public.author_id_author_seq CASCADE;
+DROP SEQUENCE IF EXISTS public.post_id_post_seq CASCADE;
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
