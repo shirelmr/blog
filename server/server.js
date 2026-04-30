@@ -182,10 +182,12 @@ app.get('/authors/:id_author', authenticateSession, (req, res) => {
     .catch((error) => console.log('ERROR:', error));
 });
 
+const PORT = process.env.PORT || 3000;
+
 syncSequences()
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`Servidor corriendose en el puerto ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`Servidor corriendo en puerto ${PORT}`);
     });
   })
   .catch((error) => {
