@@ -24,7 +24,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/session-info', {
+    fetch(`${import.meta.env.VITE_API_URL}/session-info`, {
       method: 'GET',
       credentials: 'include'
     })
@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   function handleLogout() {
-    fetch('http://localhost:8000/logout', {
+    fetch(`${import.meta.env.VITE_API_URL}/logout`, {
       method: 'POST',
       credentials: 'include'
     })
@@ -68,7 +68,7 @@ function App() {
         }
         />
         <Route path='/' element={<ProtectedRoute isAuthenticated={isAuthenticated}><Home /></ProtectedRoute>} />
-        <Route path='/blog' element={<ProtectedRoute isAuthenticated={isAuthenticated}><Blog /></ProtectedRoute>} />
+        <Route path='/blog' element={<Blog />} />
         <Route path='/blog/new' element={<ProtectedRoute isAuthenticated={isAuthenticated}><NewPost /></ProtectedRoute>} />
         <Route path='/contact' element={<ProtectedRoute isAuthenticated={isAuthenticated}><Contact /></ProtectedRoute>} />
         <Route path='/blog/:id_post' element={<ProtectedRoute isAuthenticated={isAuthenticated}><Post /></ProtectedRoute>} />
